@@ -8,6 +8,10 @@
         {
             "name": "Vuong Minh",
             "email": "vuongxuongminh@gmail.com"
+        },
+        {
+            "name": "Christof Opresnik",
+            "email": "hello@bit-jockey.com"
         }
     ],
     "require": {

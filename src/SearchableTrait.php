@@ -97,7 +97,7 @@ trait SearchableTrait
             $condition = new Condition($expressionConfig);
             $orderBy = new OrderBy($expressionConfig);
             $aq->andWhere($condition);
-            $aq->addOrderBy($orderBy);
+            $aq->addOrderBy($orderBy->getExpression());
         }
 
         return $aq;
