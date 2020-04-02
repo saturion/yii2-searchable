@@ -368,26 +368,26 @@ $models = \app\models\Post::find()->where(['author_id' => 1])->all();
 
 ### Simple
 
-You may begin searching a model using the `search` method. The search method accepts a single string that will be used to search your models. 
+You may begin searching a model using the `searchIndex` method. The search method accepts a single string that will be used to search your models. 
 This method return an `ActiveQuery` you can add more condition or relationship like an origin query. 
 
 > Note when add more query condition you must not be use `where` method use `andWhere` or `orWhere` instead because it will override search ids condition result.
 
 ```php
-$posts = \app\models\Post::search('vxm')->all();
-$posts = \app\models\Post::search('vxm')->andWhere(['author_id' => 1])->all();
+$posts = \app\models\Post::searchIndex('vxm')->all();
+$posts = \app\models\Post::searchIndex('vxm')->andWhere(['author_id' => 1])->all();
 
 
 // not use
-$posts = \app\models\Post::search('vxm')->where(['author_id' => 1])->all();
+$posts = \app\models\Post::searchIndex('vxm')->where(['author_id' => 1])->all();
 ```
 
 ### Advanced
 
-You can joining relations on search query with relations support `searchable`:
+You can join relations on search query with relations support `searchable`:
 
 ```php
-$posts = \app\models\Post::search('vxm')->joinWith('category')->andWhere(Category::search('vxm category'));
+$posts = \app\models\Post::searchIndex('vxm')->joinWith('category')->andWhere(Category::searchIndex('vxm category'));
 ```
 
 ### Search mode
@@ -395,8 +395,8 @@ $posts = \app\models\Post::search('vxm')->joinWith('category')->andWhere(Categor
 You can choice a `boolean` or `fuzzy` search mode as a second parameter if not set `defaultSearchMode` of `Searchable` component will be use:
 
 ```php
-$posts = \app\models\Post::search('vxm', 'fuzzy', ['fuzziness' => true])->all();
-$posts = \app\models\Post::search('vxm', 'boolean')->all();
+$posts = \app\models\Post::searchIndex('vxm', 'fuzzy', ['fuzziness' => true])->all();
+$posts = \app\models\Post::searchIndex('vxm', 'boolean')->all();
 ```
 
 For more detail of search mode please refer to [teamtnt/tntsearch](https://github.com/teamtnt/tntsearch) to see full document.
