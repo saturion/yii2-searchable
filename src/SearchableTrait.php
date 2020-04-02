@@ -72,7 +72,7 @@ trait SearchableTrait
      * @throws \TeamTNT\TNTSearch\Exceptions\IndexNotFoundException
      * @throws \yii\base\InvalidConfigException
      */
-    public static function search(string $query, ?string $mode = null, array $config = []): ActiveQueryInterface
+    public static function searchIndex(string $query, ?string $mode = null, array $config = []): ActiveQueryInterface
     {
         $ids = static::searchIds($query, $mode, $config);
         /** @var \yii\db\ActiveQuery $aq */
